@@ -18,10 +18,11 @@ st.markdown("# 📊 Análise Exploratória da Previsão de Renda")
 st.markdown("Este painel apresenta visualizações exploratórias com base nas variáveis que influenciam a renda dos clientes de uma instituição financeira. A análise busca identificar padrões relevantes para futuras etapas de modelagem preditiva.")
 
 # Leitura dos dados
+url = "https://raw.githubusercontent.com/andre-sucharski-carneiro/analise-de-inadimplencia/main/projeto%202/input/previsao_de_renda.csv"
 try:
-    renda = pd.read_csv('./input/previsao_de_renda.csv')
-except FileNotFoundError:
-    st.error("O arquivo 'previsao_de_renda.csv' não foi encontrado. Verifique o caminho e tente novamente.")
+    renda = pd.read_csv(url)
+except Exception as e:
+    st.error(f"Erro ao carregar os dados: {e}")
     st.stop()
 
 # Gráficos ao longo do tempo
